@@ -4,18 +4,27 @@
 
 == Status
 
-The adapter is going through a major re-work as DataMapper will soon support EmbeddedValue (see: http://wiki.github.com/datamapper/dm-core/roadmap)
-and the adapter will significantly benefit from that fact as there won't be a need to hack around DM's private API like
-it used to be. Apart from embedded docs support there's plenty of work that needs to be done around MongoDB's modifier
-operators (http://www.mongodb.org/display/DOCS/Updating). With these things done we can start thinking about releasing 1.0.
+This adapter is compatible to currents dm-core master. It is mostly stable and 
+needs testing! We target a 1.0.beta release with 
+dm-1.3.0. This adapter is not complete when it comes to mongodb feature set. 
+But it is complete in sense of datamapper.
 
-Contributors are most welcome! In case of any questions you can find me on #datamapper IRC channel.
+With DM-2 around the corner (https://github.com/datamapper/dm-core/wiki/roadmap)
+we'll spend our development effort to implement the following mongo specific 
+features in a dm-2 version of this adapter:
 
-solnic
+* Update operators (http://www.mongodb.org/display/DOCS/Updating). 
+* Atomic updates   (http://www.mongodb.org/display/DOCS/Atomic+Operations).
+* Embedded Value   (Virtus support this).
+
+Contributors are most welcome! In case of any questions you can find me on 
+#datamapper IRC channel.
+
+mbj
 
 Useful links:
 
-* http://github.com/solnic/dm-mongo-adapter
+* http://github.com/mbj/dm-mongo-adapter
 * http://groups.google.com/group/dm-mongo-adapter
 * http://rdoc.info/projects/solnic/dm-mongo-adapter
 
@@ -27,17 +36,32 @@ Ruby gems
 * dm-aggregates ~> 1.3.0.beta
 * dm-migrations ~> 1.2.0.beta
 * mongo ~> 1.5.0
-* mongodb ~> 2.0.0 (This gem is only tested against this version)
+* mongodb ~> 2.0.0 (This gem is only tested against this mongo version)
 
 == Install
 
   gem install dm-mongo-adapter
 
 == Synopsis
+  # connecting a replica set
+  DataMapper.setup(:default,
+    :adapter => 'mongo',,
+    :database => 'my_mongo_db',
+    :seeds => %w(my_seed:27017 my_other_seed)
+  )
 
+  # connecting a single mongo
+  DataMapper.setup(:default,
+    :adapter  => 'mongo',
+    :database => 'my_mongo_db'
+  )
+
+  # connecting with authentication
   DataMapper.setup(:default,
     :adapter  => 'mongo',
     :database => 'my_mongo_db',
+    :user     => 'username',
+    :password => 'password'
   )
 
   # Define resources
@@ -94,13 +118,21 @@ and expect more of course :)
 
 == Authors and contributors
 
-The adapter has been originally written by Shane Hanna (shanna). Project is currently maintained by Piotr Solnica (solnic).
+The adapter has been originally written by Shane Hanna (shanna). 
+Was maintained by Piotr Solnica (solnic). Currently maintained by Markus Schirp(mbj).
 
 Contributors:
 
-* Anthony Williams (antw)
-* Lance Carlson (lancecarlson)
-* Markus Schirp (mbj)
+* solnic (Piotr Solnica)
+* mbj (Markus Schirp)
+* antw (Anthony Williams)
+* lancecarlson (Lance Carlson)
+* shanna (Shane Hanna)
+* dkubb (Dan Kubb)
+* shingara (Cyril Mougel)
+* sickill (Marcin Kulik)
+
+See automatically updated list at: https://github.com/mbj/dm-mongo-adapter/contributors
 
 == Note on Patches/Pull Requests
 
@@ -114,4 +146,4 @@ Contributors:
 
 == Copyright
 
-Copyright (c) 2009 "Shane Hanna", 2009-2010 "Piotr Solnica". See LICENSE for details.
+Copyright (c) 2009 "Shane Hanna", 2009-2011 "Piotr Solnica", 2011-2012 "Markus Schirp" See LICENSE for details.
