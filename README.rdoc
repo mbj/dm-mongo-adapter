@@ -18,9 +18,9 @@ features in a DM-2.0 version of this adapter:
 * Embedded Value   (Virtus support this).
 
 Contributors are most welcome! In case of any questions you can find me on 
-#datamapper IRC channel.
+#datamapper IRC channel,
 
-mbj
+mbj (Markus Schirp)
 
 Useful links:
 
