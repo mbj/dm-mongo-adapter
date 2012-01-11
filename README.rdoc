@@ -7,7 +7,7 @@
 This adapter is compatible to currents dm-core master. It is mostly stable and 
 needs testing! We target a 1.0.beta release with 
 dm-1.3.0. This adapter is not complete when it comes to mongodb feature set. 
-But it is complete in sense of datamapper.
+But it is complete in sense of DM-1.3.
 
 With DM-2.0 around the corner (https://github.com/datamapper/dm-core/wiki/roadmap)
 we'll spend our development effort to implement the following mongo specific 
