@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
 
   s.rubygems_version = "1.8.10"
 
-  s.add_runtime_dependency(%q<mongo>,         ["~> 1.4.0"])
-  s.add_runtime_dependency(%q<dm-core>,       ["~> 1.2.0.rc2"])
-  s.add_runtime_dependency(%q<dm-migrations>, ["~> 1.2.0.rc2"])
-  s.add_runtime_dependency(%q<dm-aggregates>, ["~> 1.2.0.rc2"])
+  s.add_runtime_dependency(%q<mongo>,         ["~> 1.6.0"])
+  s.add_runtime_dependency(%q<dm-core>,       ["~> 1.2.0"])
+  s.add_runtime_dependency(%q<dm-migrations>, ["~> 1.2.0"])
+  s.add_runtime_dependency(%q<dm-aggregates>, ["~> 1.2.0"])
 
   s.add_development_dependency(%q<rake>,      ["~> 0.8.7"])
   s.add_development_dependency(%q<rspec>,     ["~> 1.3.1"])

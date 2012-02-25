@@ -2,7 +2,7 @@ require 'pathname'
 require 'spec'
 require 'dm-core'
 require 'dm-mongo-adapter'
-require 'dm-annoing-modificators'
+#require 'dm-annoing-modificators'
 
 MONGO_SPEC_ROOT = Pathname(__FILE__).dirname.expand_path
 $LOAD_PATH.unshift(MONGO_SPEC_ROOT.parent.join('lib').to_s)
@@ -12,6 +12,16 @@ Pathname.glob((MONGO_SPEC_ROOT + '**/shared/**/*.rb').to_s).each { |file| requir
 
 # Define the repositories used by the specs. Override the defaults by
 # supplying ENV['DEFAULT_SPEC_URI'] or ENV['AUTH_SPEC_URI'].
+
+module DataMapper::Model
+  def create_or_raise(*args)
+    resource = create(*args)
+    unless resource
+      raise("failed to create resource")
+    end
+    resource
+  end
+end
 
 
 Spec::Runner.configure do |config|
